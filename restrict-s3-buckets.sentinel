@@ -26,9 +26,9 @@ bucket_tags = rule {
 acl_allowed = rule {
 	all s3_buckets as _, buckets {
 		buckets.change.after.acl in allowed_acls
-		print(buckets.change.after.acl)
 	}
 }
+print(s3_buckets.change.after.acl)
 
 main = rule {
 	(bucket_tags and acl_allowed) else false
